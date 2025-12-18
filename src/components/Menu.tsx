@@ -90,29 +90,39 @@ const Menu = () => {
   ];
 
   return (
-    <section id="menu" className="py-24 bg-gradient-dark text-cream relative overflow-hidden">
-      {/* Decorative chalk texture effect */}
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
+    <section id="menu" className="py-24 bg-background text-foreground relative overflow-hidden">
+      {/* Subtle gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent pointer-events-none" />
+      
+      {/* Elegant gold accent line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
-        <h2 className="font-display text-4xl md:text-5xl font-semibold text-center mb-12 animate-fade-up">
+        <h2 className="font-display text-4xl md:text-5xl font-light tracking-wide text-center mb-4 animate-fade-up">
           {t('menu.title')}
         </h2>
+        
+        {/* Elegant subtitle line */}
+        <div className="flex items-center justify-center gap-4 mb-12 animate-fade-up" style={{ animationDelay: '0.05s' }}>
+          <div className="w-12 h-px bg-primary/40" />
+          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+          <div className="w-12 h-px bg-primary/40" />
+        </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+        <div className="flex flex-wrap justify-center gap-6 mb-14 animate-fade-up" style={{ animationDelay: '0.1s' }}>
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-body font-medium transition-all duration-500 hover:-translate-y-1 ${
+              className={`flex items-center gap-3 px-8 py-3 font-body text-sm uppercase tracking-widest transition-all duration-500 border ${
                 activeCategory === cat.id
-                  ? 'bg-primary text-primary-foreground shadow-warm'
-                  : 'bg-accent/50 text-cream/80 hover:bg-accent/70'
+                  ? 'border-primary text-primary bg-primary/5'
+                  : 'border-border/50 text-muted-foreground hover:border-primary/50 hover:text-foreground'
               }`}
             >
-              <cat.icon className={`w-5 h-5 transition-transform duration-300 ${activeCategory === cat.id ? 'scale-110' : ''}`} />
+              <cat.icon className={`w-4 h-4 transition-all duration-300 ${activeCategory === cat.id ? 'text-primary' : ''}`} />
               {cat.label}
             </button>
           ))}
@@ -122,43 +132,43 @@ const Menu = () => {
         <div className="max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '0.2s' }}>
           {/* Header for drinks with classic/specialty */}
           {(activeCategory === 'hot' || activeCategory === 'cold') && (
-            <div className="flex justify-end gap-8 mb-4 pr-4 text-sm text-cream/60 font-body uppercase tracking-wider">
+            <div className="flex justify-end gap-8 mb-6 pr-4 text-xs text-muted-foreground font-body uppercase tracking-[0.2em]">
               <span className="w-16 text-center">{t('menu.classic')}</span>
               <span className="w-16 text-center">{t('menu.specialty')}</span>
             </div>
           )}
 
-          <div className="space-y-1">
+          <div className="space-y-0">
             {menuData[activeCategory].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-cream/5 transition-all duration-300 group hover:translate-x-1"
+                className="flex items-center justify-between py-4 px-4 border-b border-border/30 hover:bg-card/50 transition-all duration-300 group"
                 style={{ animationDelay: `${index * 0.02}s` }}
               >
-                <div className="flex items-baseline gap-3">
-                  <span className="font-body text-lg text-cream group-hover:text-warm-gold transition-colors duration-300">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-body text-base tracking-wide text-foreground group-hover:text-primary transition-colors duration-300">
                     {item.name}
                   </span>
                   {item.volume && (
-                    <span className="text-sm text-cream/50">{item.volume}</span>
+                    <span className="text-xs text-muted-foreground tracking-wider">{item.volume}</span>
                   )}
                 </div>
                 
                 <div className="flex items-center gap-8">
                   {item.classicPrice !== undefined && (
-                    <span className="w-16 text-center font-body font-semibold text-warm-gold">
+                    <span className="w-16 text-center font-body text-primary">
                       {item.classicPrice}
                     </span>
                   )}
                   {item.specialtyPrice !== undefined ? (
-                    <span className="w-16 text-center font-body font-semibold text-warm-gold">
+                    <span className="w-16 text-center font-body text-primary">
                       {item.specialtyPrice}
                     </span>
                   ) : item.classicPrice !== undefined ? (
-                    <span className="w-16 text-center font-body text-cream/30">—</span>
+                    <span className="w-16 text-center font-body text-muted-foreground/30">—</span>
                   ) : null}
                   {item.price !== undefined && (
-                    <span className="font-body font-semibold text-warm-gold">
+                    <span className="font-body text-primary">
                       {item.price}
                     </span>
                   )}
@@ -169,13 +179,13 @@ const Menu = () => {
 
           {/* Additions section for hot drinks */}
           {activeCategory === 'hot' && (
-            <div className="mt-8 pt-6 border-t border-cream/20">
-              <h3 className="font-display text-xl text-cream/80 mb-4">{t('menu.additions')}</h3>
-              <div className="space-y-2">
+            <div className="mt-10 pt-8 border-t border-border/50">
+              <h3 className="font-display text-lg tracking-wide text-foreground/80 mb-6">{t('menu.additions')}</h3>
+              <div className="space-y-0">
                 {additions.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between py-2 px-4 hover:bg-cream/5 rounded-lg transition-all duration-300 group">
-                    <span className="font-body text-cream/70 group-hover:text-cream transition-colors">{item.name}</span>
-                    <span className="font-body text-warm-gold">{item.price}</span>
+                  <div key={index} className="flex items-center justify-between py-3 px-4 border-b border-border/20 hover:bg-card/30 transition-all duration-300 group">
+                    <span className="font-body text-muted-foreground group-hover:text-foreground transition-colors">{item.name}</span>
+                    <span className="font-body text-primary">{item.price}</span>
                   </div>
                 ))}
               </div>
@@ -184,7 +194,7 @@ const Menu = () => {
         </div>
 
         {/* Price note */}
-        <p className="text-center text-cream/50 text-sm mt-8 font-body animate-fade-up" style={{ animationDelay: '0.3s' }}>
+        <p className="text-center text-muted-foreground text-xs mt-10 font-body tracking-widest uppercase animate-fade-up" style={{ animationDelay: '0.3s' }}>
           * {t('menu.classic')} / {t('menu.specialty')} - MDL
         </p>
       </div>
