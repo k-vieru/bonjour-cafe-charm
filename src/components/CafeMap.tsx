@@ -1,6 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { useState } from 'react';
+import { MapPin, ExternalLink } from 'lucide-react';
 
 interface Location {
   name: string;
@@ -50,59 +49,63 @@ const locations: Location[] = [
   },
 ];
 
-// Custom marker icon
-const customIcon = new Icon({
-  iconUrl: 'data:image/svg+xml;base64,' + btoa(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#8B6914" width="36" height="36">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-    </svg>
-  `),
-  iconSize: [36, 36],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -36],
-});
-
 const CafeMap = () => {
-  const center: [number, number] = [47.0245, 28.8322];
+  const [selectedLocation, setSelectedLocation] = useState<Location>(locations[0]);
 
   const openDirections = (lat: number, lng: number) => {
     window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, '_blank');
   };
 
+  // Create OpenStreetMap embed URL centered on selected location
+  const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${selectedLocation.lng - 0.02},${selectedLocation.lat - 0.01},${selectedLocation.lng + 0.02},${selectedLocation.lat + 0.01}&layer=mapnik&marker=${selectedLocation.lat},${selectedLocation.lng}`;
+
   return (
-    <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-luxury border border-border">
-      <MapContainer
-        center={center}
-        zoom={13}
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+    <div className="space-y-4">
+      {/* Location selector pills */}
+      <div className="flex flex-wrap gap-2 justify-center">
         {locations.map((location, index) => (
-          <Marker
+          <button
             key={index}
-            position={[location.lat, location.lng]}
-            icon={customIcon}
+            onClick={() => setSelectedLocation(location)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full font-body text-sm transition-all duration-300 ${
+              selectedLocation.name === location.name
+                ? 'bg-primary text-primary-foreground shadow-warm'
+                : 'bg-card border border-border hover:border-primary/30 text-foreground'
+            }`}
           >
-            <Popup>
-              <div className="p-2 min-w-[200px]">
-                <h3 className="font-semibold text-base mb-1">{location.name}</h3>
-                <p className="text-sm text-gray-600 mb-1">{location.address}</p>
-                <p className="text-sm text-gray-500 mb-3">{location.hours}</p>
-                <button
-                  onClick={() => openDirections(location.lat, location.lng)}
-                  className="w-full bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors"
-                >
-                  Direcții
-                </button>
-              </div>
-            </Popup>
-          </Marker>
+            <MapPin className="w-4 h-4" />
+            {location.name}
+          </button>
         ))}
-      </MapContainer>
+      </div>
+
+      {/* Map container */}
+      <div className="w-full h-[350px] rounded-2xl overflow-hidden shadow-luxury border border-border relative">
+        <iframe
+          src={mapUrl}
+          className="w-full h-full border-0"
+          title="Cafe Location Map"
+          loading="lazy"
+        />
+        
+        {/* Overlay with location info */}
+        <div className="absolute bottom-4 left-4 right-4 bg-card/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-border">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h3 className="font-display font-semibold text-foreground">{selectedLocation.name}</h3>
+              <p className="text-sm text-muted-foreground">{selectedLocation.address}</p>
+              <p className="text-sm text-muted-foreground">{selectedLocation.hours}</p>
+            </div>
+            <button
+              onClick={() => openDirections(selectedLocation.lat, selectedLocation.lng)}
+              className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-medium transition-all duration-300 hover:shadow-warm shrink-0"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Direcții
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
