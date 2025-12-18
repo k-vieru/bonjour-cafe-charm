@@ -36,15 +36,10 @@ const Contact = () => {
               <h4 className="font-display text-lg font-semibold text-cream mb-4">
                 {t('contact.follow')}
               </h4>
-              <a
-                href="https://www.instagram.com/bonjour.cafe.md/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-4 py-3 bg-cream/10 rounded-lg hover:bg-cream/20 transition-all duration-300 group hover:-translate-y-1"
-              >
-                <Instagram className="w-6 h-6 text-warm-gold group-hover:scale-110 transition-transform duration-300" />
+              <div className="inline-flex items-center gap-3 px-4 py-3 bg-cream/10 rounded-lg">
+                <Instagram className="w-6 h-6 text-warm-gold" />
                 <span className="font-body text-cream">@bonjour.cafe.md</span>
-              </a>
+              </div>
             </div>
           </div>
 
