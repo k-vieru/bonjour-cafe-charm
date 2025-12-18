@@ -136,22 +136,25 @@ const Reviews = () => {
   return (
     <section id="reviews" className="py-24 bg-secondary relative overflow-hidden">
       {/* Decorative Quote */}
-      <div className="absolute top-10 left-10 opacity-5">
+      <div className="absolute top-10 left-10 opacity-5 animate-float">
         <Quote className="w-48 h-48 text-primary" />
+      </div>
+      <div className="absolute bottom-10 right-10 opacity-5 animate-float" style={{ animationDelay: '3s' }}>
+        <Quote className="w-32 h-32 text-primary rotate-180" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-4 animate-fade-up">
             {t('reviews.title')}
           </h2>
-          <p className="font-body text-lg text-muted-foreground">
+          <p className="font-body text-lg text-muted-foreground animate-fade-up" style={{ animationDelay: '0.1s' }}>
             {t('reviews.subtitle')}
           </p>
           
           {/* Google Rating */}
-          <div className="flex items-center justify-center gap-2 mt-6">
+          <div className="flex items-center justify-center gap-2 mt-6 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-warm-gold text-warm-gold" />
@@ -168,7 +171,8 @@ const Reviews = () => {
             {visibleReviews.map((review, index) => (
               <div
                 key={currentIndex + index}
-                className="bg-card p-6 rounded-2xl shadow-soft border border-border hover:border-primary/20 transition-all duration-500"
+                className="bg-card p-6 rounded-2xl shadow-soft border border-border hover:border-primary/20 hover:shadow-warm transition-all duration-500 hover:-translate-y-2 animate-scale-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
@@ -203,10 +207,10 @@ const Reviews = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-10">
+          <div className="flex items-center justify-center gap-4 mt-10 animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <button
               onClick={prevSlide}
-              className="p-3 rounded-full bg-card border border-border hover:border-primary hover:text-primary transition-all"
+              className="p-3 rounded-full bg-card border border-border hover:border-primary hover:text-primary hover:shadow-warm hover:-translate-y-1 transition-all duration-300"
               aria-label="Previous reviews"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -217,10 +221,10 @@ const Reviews = () => {
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i * reviewsPerPage)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`h-2 rounded-full transition-all duration-500 ${
                     Math.floor(currentIndex / reviewsPerPage) === i
-                      ? 'bg-primary w-6'
-                      : 'bg-border hover:bg-primary/50'
+                      ? 'bg-primary w-8'
+                      : 'bg-border hover:bg-primary/50 w-2'
                   }`}
                   aria-label={`Go to page ${i + 1}`}
                 />
@@ -229,7 +233,7 @@ const Reviews = () => {
 
             <button
               onClick={nextSlide}
-              className="p-3 rounded-full bg-card border border-border hover:border-primary hover:text-primary transition-all"
+              className="p-3 rounded-full bg-card border border-border hover:border-primary hover:text-primary hover:shadow-warm hover:-translate-y-1 transition-all duration-300"
               aria-label="Next reviews"
             >
               <ChevronRight className="w-5 h-5" />

@@ -4,107 +4,110 @@
 
 @layer base {
   :root {
-    /* Warm French Café Palette */
-    --background: 35 30% 97%;
-    --foreground: 25 30% 12%;
+    /* Luxurious French Café Palette - Rich & Elegant */
+    --background: 30 15% 96%;
+    --foreground: 20 25% 10%;
 
-    --card: 35 25% 95%;
-    --card-foreground: 25 30% 12%;
+    --card: 30 20% 94%;
+    --card-foreground: 20 25% 10%;
 
-    --popover: 35 25% 95%;
-    --popover-foreground: 25 30% 12%;
+    --popover: 30 20% 94%;
+    --popover-foreground: 20 25% 10%;
 
-    /* Warm amber/gold - main brand color */
-    --primary: 32 85% 45%;
-    --primary-foreground: 35 30% 97%;
+    /* Rich champagne gold - main brand color */
+    --primary: 36 70% 42%;
+    --primary-foreground: 30 15% 96%;
 
     /* Cream secondary */
-    --secondary: 35 35% 90%;
-    --secondary-foreground: 25 30% 18%;
+    --secondary: 32 30% 88%;
+    --secondary-foreground: 20 25% 15%;
 
-    /* Muted cream */
-    --muted: 35 20% 92%;
-    --muted-foreground: 25 15% 45%;
+    /* Muted champagne */
+    --muted: 30 15% 90%;
+    --muted-foreground: 20 10% 40%;
 
-    /* Dark green accent (from chalkboard) */
-    --accent: 150 25% 22%;
-    --accent-foreground: 35 30% 97%;
+    /* Deep forest green accent */
+    --accent: 160 35% 18%;
+    --accent-foreground: 30 15% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 25% 85%;
-    --input: 35 25% 85%;
-    --ring: 32 85% 45%;
+    --border: 30 20% 82%;
+    --input: 30 20% 82%;
+    --ring: 36 70% 42%;
 
     --radius: 0.5rem;
 
-    /* Custom colors */
-    --warm-gold: 38 92% 50%;
-    --warm-amber: 32 85% 45%;
-    --dark-green: 150 25% 22%;
-    --cream: 35 35% 94%;
-    --espresso: 25 40% 15%;
-    --latte: 30 25% 80%;
+    /* Custom luxury colors */
+    --warm-gold: 42 85% 52%;
+    --warm-amber: 36 70% 42%;
+    --dark-green: 160 35% 18%;
+    --cream: 35 40% 92%;
+    --espresso: 20 35% 12%;
+    --latte: 28 25% 78%;
+    --champagne: 40 50% 75%;
 
-    /* Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(32, 85%, 45%) 0%, hsl(38, 92%, 55%) 100%);
-    --gradient-cream: linear-gradient(180deg, hsl(35, 30%, 97%) 0%, hsl(35, 35%, 92%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(150, 25%, 22%) 0%, hsl(150, 30%, 15%) 100%);
+    /* Luxurious Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(36, 70%, 42%) 0%, hsl(42, 85%, 55%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(30, 15%, 96%) 0%, hsl(32, 30%, 90%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(160, 35%, 18%) 0%, hsl(160, 40%, 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42, 85%, 52%) 0%, hsl(36, 70%, 42%) 50%, hsl(42, 85%, 52%) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(25 30% 12% / 0.08);
-    --shadow-warm: 0 8px 30px -4px hsl(32 85% 45% / 0.25);
-    --shadow-glow: 0 0 40px hsl(38 92% 50% / 0.3);
+    /* Elegant Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(20 25% 10% / 0.06);
+    --shadow-warm: 0 8px 30px -4px hsl(36 70% 42% / 0.2);
+    --shadow-glow: 0 0 50px hsl(42 85% 52% / 0.25);
+    --shadow-luxury: 0 25px 50px -12px hsl(20 25% 10% / 0.15);
 
     /* Sidebar (keeping for compatibility) */
-    --sidebar-background: 35 25% 95%;
-    --sidebar-foreground: 25 30% 12%;
-    --sidebar-primary: 32 85% 45%;
-    --sidebar-primary-foreground: 35 30% 97%;
-    --sidebar-accent: 150 25% 22%;
-    --sidebar-accent-foreground: 35 30% 97%;
-    --sidebar-border: 35 25% 85%;
-    --sidebar-ring: 32 85% 45%;
+    --sidebar-background: 30 20% 94%;
+    --sidebar-foreground: 20 25% 10%;
+    --sidebar-primary: 36 70% 42%;
+    --sidebar-primary-foreground: 30 15% 96%;
+    --sidebar-accent: 160 35% 18%;
+    --sidebar-accent-foreground: 30 15% 96%;
+    --sidebar-border: 30 20% 82%;
+    --sidebar-ring: 36 70% 42%;
   }
 
   .dark {
-    --background: 25 30% 8%;
-    --foreground: 35 25% 95%;
+    --background: 20 25% 6%;
+    --foreground: 30 20% 94%;
 
-    --card: 25 25% 12%;
-    --card-foreground: 35 25% 95%;
+    --card: 20 20% 10%;
+    --card-foreground: 30 20% 94%;
 
-    --popover: 25 25% 12%;
-    --popover-foreground: 35 25% 95%;
+    --popover: 20 20% 10%;
+    --popover-foreground: 30 20% 94%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 25 30% 8%;
+    --primary: 42 85% 52%;
+    --primary-foreground: 20 25% 6%;
 
-    --secondary: 25 20% 18%;
-    --secondary-foreground: 35 25% 95%;
+    --secondary: 20 15% 15%;
+    --secondary-foreground: 30 20% 94%;
 
-    --muted: 25 20% 18%;
-    --muted-foreground: 35 15% 60%;
+    --muted: 20 15% 15%;
+    --muted-foreground: 30 10% 55%;
 
-    --accent: 150 25% 30%;
-    --accent-foreground: 35 25% 95%;
+    --accent: 160 30% 25%;
+    --accent-foreground: 30 20% 94%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 35 25% 95%;
+    --destructive-foreground: 30 20% 94%;
 
-    --border: 25 20% 20%;
-    --input: 25 20% 20%;
-    --ring: 38 92% 50%;
+    --border: 20 15% 18%;
+    --input: 20 15% 18%;
+    --ring: 42 85% 52%;
 
-    --sidebar-background: 25 25% 10%;
-    --sidebar-foreground: 35 25% 95%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 25 30% 8%;
-    --sidebar-accent: 150 25% 30%;
-    --sidebar-accent-foreground: 35 25% 95%;
-    --sidebar-border: 25 20% 20%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-background: 20 20% 8%;
+    --sidebar-foreground: 30 20% 94%;
+    --sidebar-primary: 42 85% 52%;
+    --sidebar-primary-foreground: 20 25% 6%;
+    --sidebar-accent: 160 30% 25%;
+    --sidebar-accent-foreground: 30 20% 94%;
+    --sidebar-border: 20 15% 18%;
+    --sidebar-ring: 42 85% 52%;
   }
 }
 
@@ -139,7 +142,7 @@
   }
 
   .bg-gradient-dark {
-    background: linear-gradient(180deg, hsl(var(--accent)) 0%, hsl(150, 30%, 12%) 100%);
+    background: linear-gradient(180deg, hsl(var(--accent)) 0%, hsl(160, 40%, 10%) 100%);
   }
 
   .shadow-warm {
@@ -148,6 +151,10 @@
 
   .shadow-glow {
     box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
   }
 
   .animate-float {
@@ -165,6 +172,22 @@
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
+
+  .animate-slow-zoom {
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
 @keyframes float {
@@ -178,10 +201,12 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 20px hsl(38 92% 50% / 0.2);
+    box-shadow: 0 0 15px hsl(42 85% 52% / 0.15);
+    opacity: 0.6;
   }
   to {
-    box-shadow: 0 0 40px hsl(38 92% 50% / 0.4);
+    box-shadow: 0 0 30px hsl(42 85% 52% / 0.35);
+    opacity: 1;
   }
 }
 
@@ -205,12 +230,52 @@
   }
 }
 
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - luxurious style */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -220,10 +285,15 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
+  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--warm-gold)));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--warm-gold));
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
