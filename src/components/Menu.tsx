@@ -96,30 +96,30 @@ const Menu = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
-        <h2 className="font-display text-4xl md:text-5xl font-semibold text-center mb-12">
+        <h2 className="font-display text-4xl md:text-5xl font-semibold text-center mb-12 animate-fade-up">
           {t('menu.title')}
         </h2>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-up" style={{ animationDelay: '0.1s' }}>
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-body font-medium transition-all duration-300 ${
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-body font-medium transition-all duration-500 hover:-translate-y-1 ${
                 activeCategory === cat.id
                   ? 'bg-primary text-primary-foreground shadow-warm'
                   : 'bg-accent/50 text-cream/80 hover:bg-accent/70'
               }`}
             >
-              <cat.icon className="w-5 h-5" />
+              <cat.icon className={`w-5 h-5 transition-transform duration-300 ${activeCategory === cat.id ? 'scale-110' : ''}`} />
               {cat.label}
             </button>
           ))}
         </div>
 
         {/* Menu Items */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '0.2s' }}>
           {/* Header for drinks with classic/specialty */}
           {(activeCategory === 'hot' || activeCategory === 'cold') && (
             <div className="flex justify-end gap-8 mb-4 pr-4 text-sm text-cream/60 font-body uppercase tracking-wider">
@@ -132,10 +132,11 @@ const Menu = () => {
             {menuData[activeCategory].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-cream/5 transition-colors group"
+                className="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-cream/5 transition-all duration-300 group hover:translate-x-1"
+                style={{ animationDelay: `${index * 0.02}s` }}
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-body text-lg text-cream group-hover:text-warm-gold transition-colors">
+                  <span className="font-body text-lg text-cream group-hover:text-warm-gold transition-colors duration-300">
                     {item.name}
                   </span>
                   {item.volume && (
@@ -172,8 +173,8 @@ const Menu = () => {
               <h3 className="font-display text-xl text-cream/80 mb-4">{t('menu.additions')}</h3>
               <div className="space-y-2">
                 {additions.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between py-2 px-4">
-                    <span className="font-body text-cream/70">{item.name}</span>
+                  <div key={index} className="flex items-center justify-between py-2 px-4 hover:bg-cream/5 rounded-lg transition-all duration-300 group">
+                    <span className="font-body text-cream/70 group-hover:text-cream transition-colors">{item.name}</span>
                     <span className="font-body text-warm-gold">{item.price}</span>
                   </div>
                 ))}
@@ -183,7 +184,7 @@ const Menu = () => {
         </div>
 
         {/* Price note */}
-        <p className="text-center text-cream/50 text-sm mt-8 font-body">
+        <p className="text-center text-cream/50 text-sm mt-8 font-body animate-fade-up" style={{ animationDelay: '0.3s' }}>
           * {t('menu.classic')} / {t('menu.specialty')} - MDL
         </p>
       </div>

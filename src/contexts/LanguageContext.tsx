@@ -19,11 +19,10 @@ export const translations: Translations = {
   'nav.contact': { ro: 'Contact', ru: 'Контакты' },
 
   // Hero
-  'hero.subtitle': { ro: 'Cafenea Franțuzească', ru: 'Французская Кофейня' },
   'hero.title': { ro: 'Bonjour Cafe', ru: 'Bonjour Cafe' },
   'hero.description': { ro: 'Savurează cele mai delicioase băuturi și patiserii într-o atmosferă romantică de poveste', ru: 'Насладитесь самыми вкусными напитками и выпечкой в романтической сказочной атмосфере' },
   'hero.cta': { ro: 'Descoperă Meniul', ru: 'Открыть Меню' },
-  'hero.hours': { ro: 'Deschiși zilnic 7:00 - 22:00', ru: 'Открыты ежедневно 7:00 - 22:00' },
+  'hero.hours': { ro: 'Deschiși zilnic 07:00 - 23:00', ru: 'Открыты ежедневно 07:00 - 23:00' },
 
   // About
   'about.title': { ro: 'Povestea Noastră', ru: 'Наша История' },
@@ -57,7 +56,7 @@ export const translations: Translations = {
   'contact.title': { ro: 'Contact', ru: 'Контакты' },
   'contact.follow': { ro: 'Urmărește-ne', ru: 'Подпишись на нас' },
   'contact.hours': { ro: 'Program', ru: 'Часы Работы' },
-  'contact.hours.value': { ro: 'Zilnic: 7:00 - 22:00', ru: 'Ежедневно: 7:00 - 22:00' },
+  'contact.hours.value': { ro: 'Zilnic: 07:00 - 23:00', ru: 'Ежедневно: 07:00 - 23:00' },
 
   // Footer
   'footer.rights': { ro: 'Toate drepturile rezervate', ru: 'Все права защищены' },

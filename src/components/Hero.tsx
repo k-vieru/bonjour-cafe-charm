@@ -15,15 +15,15 @@ const Hero = () => {
         <img
           src={cafeKiosk}
           alt="Bonjour Cafe Kiosk"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105 animate-slow-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/50 to-espresso/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-espresso/60 via-espresso/40 to-espresso/70" />
       </div>
 
       {/* Decorative Elements */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
         {/* String lights effect */}
-        <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-warm-gold/30 to-transparent animate-pulse" />
+        <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-warm-gold/30 to-transparent animate-shimmer" />
         <div className="absolute top-24 left-10 w-2 h-2 rounded-full bg-warm-gold/60 animate-glow" />
         <div className="absolute top-22 left-1/4 w-2 h-2 rounded-full bg-warm-gold/60 animate-glow" style={{ animationDelay: '0.3s' }} />
         <div className="absolute top-20 left-1/2 w-2 h-2 rounded-full bg-warm-gold/60 animate-glow" style={{ animationDelay: '0.6s' }} />
@@ -34,11 +34,6 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 text-center pt-24">
         <div className="max-w-3xl mx-auto">
-          {/* Subtitle */}
-          <p className="font-body text-warm-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 animate-fade-in drop-shadow-lg">
-            {t('hero.subtitle')}
-          </p>
-
           {/* Title */}
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-semibold text-cream mb-6 animate-fade-up drop-shadow-2xl">
             {t('hero.title')}
@@ -52,7 +47,7 @@ const Hero = () => {
           {/* CTA Button */}
           <a
             href="#menu"
-            className="inline-block bg-gradient-warm text-primary-foreground font-body font-semibold px-8 py-4 rounded-full shadow-warm hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-up"
+            className="inline-block bg-gradient-warm text-primary-foreground font-body font-semibold px-8 py-4 rounded-full shadow-warm hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
             {t('hero.cta')}
@@ -66,13 +61,6 @@ const Hero = () => {
             <Clock className="w-4 h-4 text-warm-gold" />
             <span className="font-body text-sm text-cream/90">{t('hero.hours')}</span>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-cream/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-cream/70 rounded-full animate-pulse" />
         </div>
       </div>
     </section>
