@@ -37,7 +37,7 @@ const Contact = () => {
                 {t('contact.follow')}
               </h4>
               <a
-                href="https://www.instagram.com/bonjour.cafe.md?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/bonjour.cafe.md/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-4 py-3 bg-cream/10 rounded-lg hover:bg-cream/20 transition-all duration-300 group hover:-translate-y-1"
