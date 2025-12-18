@@ -55,11 +55,11 @@ const Hero = () => {
 
           {/* Hours Badge */}
           <div
-            className="inline-flex items-center gap-2 mt-8 px-4 py-2 bg-cream/10 backdrop-blur-sm rounded-full border border-cream/20 animate-fade-up"
+            className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 bg-foreground/90 rounded-full animate-fade-up"
             style={{ animationDelay: '0.6s' }}
           >
-            <Clock className="w-4 h-4 text-warm-gold" />
-            <span className="font-body text-sm text-cream/90">{t('hero.hours')}</span>
+            <Clock className="w-4 h-4 text-primary" />
+            <span className="font-body text-sm text-background font-medium">{t('hero.hours')}</span>
           </div>
         </div>
       </div>
