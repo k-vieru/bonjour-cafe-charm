@@ -1,37 +1,52 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { MapPin, Clock } from 'lucide-react';
+import { MapPin, Clock, Navigation } from 'lucide-react';
+import CafeMap from './CafeMap';
 
 const locations = [
   {
     name: 'Central Chișinău',
     address: 'Parcul Catedralei, Chișinău',
     hours: '07:00 - 23:00',
+    lat: 47.0245,
+    lng: 28.8322,
     featured: true,
   },
   {
     name: 'Strada Grigore Alexandrescu',
     address: 'Str. Grigore Alexandrescu, Chișinău',
     hours: '07:00 - 23:00',
+    lat: 47.0167,
+    lng: 28.8497,
   },
   {
     name: 'Bulevardul Mircea cel Bătrîn',
     address: 'Bul. Mircea cel Bătrîn 12/6, Chișinău',
     hours: '07:00 - 23:00',
+    lat: 47.0456,
+    lng: 28.8156,
   },
   {
     name: 'Scuar Cuza Vodă',
     address: 'Scuar Cuza Vodă / Sarmizegetusa, Chișinău',
     hours: '07:00 - 23:00',
+    lat: 47.0189,
+    lng: 28.8267,
   },
   {
     name: 'Ștefan cel Mare și Sfânt',
     address: 'Bul. Ștefan cel Mare și Sfânt 81, Chișinău',
     hours: '07:00 - 23:00',
+    lat: 47.0211,
+    lng: 28.8378,
   },
 ];
 
 const Locations = () => {
   const { t } = useLanguage();
+
+  const openDirections = (lat: number, lng: number) => {
+    window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, '_blank');
+  };
 
   return (
     <section id="locations" className="py-24 bg-gradient-cream relative overflow-hidden">
@@ -50,6 +65,11 @@ const Locations = () => {
           </p>
         </div>
 
+        {/* Interactive Map */}
+        <div className="max-w-5xl mx-auto mb-12 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <CafeMap />
+        </div>
+
         {/* Locations Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {locations.map((location, index) => (
@@ -60,7 +80,7 @@ const Locations = () => {
                   ? 'border-primary/30 shadow-lg md:col-span-2 lg:col-span-1'
                   : 'border-border hover:border-primary/20'
               }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               <h3 className="font-display text-xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                 {location.name}
@@ -77,6 +97,15 @@ const Locations = () => {
                   <span className="font-body">{location.hours}</span>
                 </div>
               </div>
+
+              {/* Directions Button */}
+              <button
+                onClick={() => openDirections(location.lat, location.lng)}
+                className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary/10 hover:bg-primary hover:text-primary-foreground text-primary rounded-xl font-medium transition-all duration-300 group-hover:shadow-warm"
+              >
+                <Navigation className="w-4 h-4" />
+                Direcții
+              </button>
 
               {location.featured && (
                 <div className="mt-4 pt-4 border-t border-border">
