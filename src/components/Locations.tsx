@@ -1,72 +1,37 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { MapPin, Clock, Navigation } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 
 const locations = [
   {
-    name: 'Parcul Catedralei',
-    address: 'Str. Columna 106, Chișinău',
+    name: 'Central Chișinău',
+    address: 'Parcul Catedralei, Chișinău',
     hours: '07:00 - 23:00',
-    lat: 47.0245,
-    lng: 28.8322,
     featured: true,
   },
   {
-    name: 'Valea Morilor',
+    name: 'Strada Grigore Alexandrescu',
     address: 'Str. Grigore Alexandrescu, Chișinău',
     hours: '07:00 - 23:00',
-    lat: 47.0167,
-    lng: 28.8497,
   },
   {
-    name: 'Mircea cel Bătrîn',
+    name: 'Bulevardul Mircea cel Bătrîn',
     address: 'Bul. Mircea cel Bătrîn 12/6, Chișinău',
     hours: '07:00 - 23:00',
-    lat: 47.0456,
-    lng: 28.8156,
-  },
-  {
-    name: 'Ștefan cel Mare',
-    address: 'Bul. Ștefan cel Mare și Sfânt 81, Chișinău',
-    hours: '07:00 - 23:00',
-    lat: 47.0211,
-    lng: 28.8378,
   },
   {
     name: 'Scuar Cuza Vodă',
     address: 'Scuar Cuza Vodă / Sarmizegetusa, Chișinău',
     hours: '07:00 - 23:00',
-    lat: 47.0189,
-    lng: 28.8267,
   },
   {
-    name: 'Grădina Publică',
-    address: 'Grădina Publică Ștefan cel Mare, Chișinău',
+    name: 'Ștefan cel Mare și Sfânt',
+    address: 'Bul. Ștefan cel Mare și Sfânt 81, Chișinău',
     hours: '07:00 - 23:00',
-    lat: 47.0228,
-    lng: 28.8305,
-  },
-  {
-    name: 'Centru',
-    address: 'Centrul Chișinăului, Chișinău',
-    hours: '07:00 - 23:00',
-    lat: 47.0250,
-    lng: 28.8350,
-  },
-  {
-    name: 'Parcul Cuza-Vodă',
-    address: 'Parcul Cuza-Vodă (chioșc), Chișinău',
-    hours: '07:00 - 23:00',
-    lat: 47.0195,
-    lng: 28.8280,
   },
 ];
 
 const Locations = () => {
   const { t } = useLanguage();
-
-  const openDirections = (lat: number, lng: number) => {
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, '_blank');
-  };
 
   return (
     <section id="locations" className="py-24 bg-gradient-cream relative overflow-hidden">
@@ -112,15 +77,6 @@ const Locations = () => {
                   <span className="font-body">{location.hours}</span>
                 </div>
               </div>
-
-              {/* Directions Button */}
-              <button
-                onClick={() => openDirections(location.lat, location.lng)}
-                className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary/10 hover:bg-primary hover:text-primary-foreground text-primary rounded-xl font-medium transition-all duration-300 group-hover:shadow-warm"
-              >
-                <Navigation className="w-4 h-4" />
-                Direcții
-              </button>
 
               {location.featured && (
                 <div className="mt-4 pt-4 border-t border-border">
