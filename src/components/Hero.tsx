@@ -46,23 +46,22 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* CTA Button */}
-          <a
-            href="#menu"
-            className="group inline-block bg-gradient-warm text-primary-foreground font-body font-semibold px-8 py-4 rounded-full shadow-warm hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 animate-fade-up relative overflow-hidden"
-            style={{ animationDelay: '0.4s' }}
-          >
-            <span className="relative z-10">{t('hero.cta')}</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-warm-gold to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-500" />
-          </a>
+          {/* CTA & Hours - Aligned */}
+          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+            {/* CTA Button */}
+            <a
+              href="#menu"
+              className="group inline-block bg-gradient-warm text-primary-foreground font-body font-semibold px-8 py-4 rounded-full shadow-warm hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden"
+            >
+              <span className="relative z-10">{t('hero.cta')}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-warm-gold to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-500" />
+            </a>
 
-          {/* Hours Badge */}
-          <div
-            className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 bg-foreground/90 rounded-full animate-fade-up"
-            style={{ animationDelay: '0.6s' }}
-          >
-            <Clock className="w-4 h-4 text-primary" />
-            <span className="font-body text-sm text-background font-medium">{t('hero.hours')}</span>
+            {/* Hours Badge */}
+            <div className="inline-flex items-center gap-2 px-5 py-4 bg-foreground/90 rounded-full">
+              <Clock className="w-4 h-4 text-primary" />
+              <span className="font-body text-sm text-background font-medium">{t('hero.hours')}</span>
+            </div>
           </div>
         </div>
       </div>
