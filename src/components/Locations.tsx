@@ -3,26 +3,33 @@ import { MapPin, Clock, Navigation } from 'lucide-react';
 
 const locations = [
   {
-    name: 'Central Chișinău',
-    address: 'Parcul Catedralei, Chișinău',
+    name: 'Parcul Catedralei',
+    address: 'Str. Columna 106, Chișinău',
     hours: '07:00 - 23:00',
     lat: 47.0245,
     lng: 28.8322,
     featured: true,
   },
   {
-    name: 'Strada Grigore Alexandrescu',
+    name: 'Valea Morilor',
     address: 'Str. Grigore Alexandrescu, Chișinău',
     hours: '07:00 - 23:00',
     lat: 47.0167,
     lng: 28.8497,
   },
   {
-    name: 'Bulevardul Mircea cel Bătrîn',
+    name: 'Mircea cel Bătrîn',
     address: 'Bul. Mircea cel Bătrîn 12/6, Chișinău',
     hours: '07:00 - 23:00',
     lat: 47.0456,
     lng: 28.8156,
+  },
+  {
+    name: 'Ștefan cel Mare',
+    address: 'Bul. Ștefan cel Mare și Sfânt 81, Chișinău',
+    hours: '07:00 - 23:00',
+    lat: 47.0211,
+    lng: 28.8378,
   },
   {
     name: 'Scuar Cuza Vodă',
@@ -32,11 +39,25 @@ const locations = [
     lng: 28.8267,
   },
   {
-    name: 'Ștefan cel Mare și Sfânt',
-    address: 'Bul. Ștefan cel Mare și Sfânt 81, Chișinău',
+    name: 'Grădina Publică',
+    address: 'Grădina Publică Ștefan cel Mare, Chișinău',
     hours: '07:00 - 23:00',
-    lat: 47.0211,
-    lng: 28.8378,
+    lat: 47.0228,
+    lng: 28.8305,
+  },
+  {
+    name: 'Centru',
+    address: 'Centrul Chișinăului, Chișinău',
+    hours: '07:00 - 23:00',
+    lat: 47.0250,
+    lng: 28.8350,
+  },
+  {
+    name: 'Parcul Cuza-Vodă',
+    address: 'Parcul Cuza-Vodă (chioșc), Chișinău',
+    hours: '07:00 - 23:00',
+    lat: 47.0195,
+    lng: 28.8280,
   },
 ];
 
