@@ -35,22 +35,25 @@ const Hero = () => {
       <div className="relative z-20 container mx-auto px-4 text-center pt-24">
         <div className="max-w-3xl mx-auto">
           {/* Title */}
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-semibold text-cream mb-6 animate-fade-up drop-shadow-2xl">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 animate-fade-up [text-shadow:_0_4px_20px_rgba(0,0,0,0.8),_0_2px_10px_rgba(0,0,0,0.9),_0_0_40px_rgba(0,0,0,0.6)]">
             {t('hero.title')}
           </h1>
 
           {/* Description */}
-          <p className="font-body text-lg md:text-xl text-cream/90 max-w-xl mx-auto mb-10 leading-relaxed animate-fade-up drop-shadow-md" style={{ animationDelay: '0.2s' }}>
-            {t('hero.description')}
-          </p>
+          <div className="bg-black/40 backdrop-blur-sm rounded-2xl px-6 py-4 mb-10 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            <p className="font-body text-lg md:text-xl text-white max-w-xl mx-auto leading-relaxed [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+              {t('hero.description')}
+            </p>
+          </div>
 
           {/* CTA Button */}
           <a
             href="#menu"
-            className="inline-block bg-gradient-warm text-primary-foreground font-body font-semibold px-8 py-4 rounded-full shadow-warm hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 animate-fade-up"
+            className="group inline-block bg-gradient-warm text-primary-foreground font-body font-semibold px-8 py-4 rounded-full shadow-warm hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 animate-fade-up relative overflow-hidden"
             style={{ animationDelay: '0.4s' }}
           >
-            {t('hero.cta')}
+            <span className="relative z-10">{t('hero.cta')}</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-warm-gold to-primary bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-500" />
           </a>
 
           {/* Hours Badge */}
