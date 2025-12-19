@@ -239,11 +239,29 @@
 }
 
 @keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes buttonGlow {
   0%, 100% {
-    opacity: 0.3;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
   }
   50% {
-    opacity: 0.6;
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.2);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: hsl(var(--primary) / 0.3);
+  }
+  50% {
+    border-color: hsl(var(--primary) / 0.8);
   }
 }
 
@@ -294,5 +312,54 @@ html {
 
 /* Smooth transitions for all interactive elements */
 a, button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elegant button hover animations */
+.btn-premium {
+  @apply relative overflow-hidden;
+}
+
+.btn-premium::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.2) 0%, transparent 50%, hsl(var(--warm-gold) / 0.2) 100%);
+}
+
+.btn-premium:hover::before {
+  @apply opacity-100;
+}
+
+.btn-premium:hover {
+  @apply shadow-glow;
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+/* Elegant link hover effect */
+.link-elegant {
+  @apply relative;
+}
+
+.link-elegant::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-primary to-warm-gold transition-all duration-500;
+}
+
+.link-elegant:hover::after {
+  @apply w-full;
+}
+
+/* Card hover lift effect */
+.card-premium {
+  @apply transition-all duration-500;
+}
+
+.card-premium:hover {
+  @apply -translate-y-2;
+  box-shadow: 0 20px 40px -15px hsl(var(--primary) / 0.3), 0 0 20px hsl(var(--primary) / 0.1);
+}
+
+/* Interactive border glow */
+.border-glow:hover {
+  animation: borderGlow 1.5s ease-in-out infinite;
 }
